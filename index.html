@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            background: black;
+            font-family: 'PT Serif'
+        }
+
+        .left-side {
+            width: 60%;
+            background-color: black;
+            color: white;
+            padding: 20px;
+        }
+
+        .text {
+            width: 60%;
+            padding-left: 48px;
+        }
+
+        .right-side {
+            width: 40%;
+            max-width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .right-side img {
+            max-width: 100%;
+            max-height: 100vh;
+            object-fit: contain;
+            border-radius: 0 0 0 38px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .left-side, .right-side {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="left-side">
+<img src="https://cdn.discordapp.com/attachments/1132468562569744485/1140763255443300513/Copy_of_Untitled_SoundCloud_Banner.png" style="height: 48px; margin-left: 32px; margin-top: 12px;"><br>
+        <p class="text">
+            Ludendorff, North Yankton is a fictional location prominently featured in multiple video games including GTA 5. It serves as the backdrop for a significant prologue mission in the game, marked by its snowy terrain and small-town aesthetics.</br></br>
+            Outside gaming, Ludendorff has been adopted as codenames for multiple projects by the technology and finance company SRYDEN.</br></br><strong>Releases:</strong><br>
+            Ludendorff #1 - November 2021</br>
+            Ludendorff #2 - December 2022</br>
+            Ludendorff #3 - ???? ????</br></br>
+            Ludendorff's association with SRYDEN's projects has added an element of intrigue and interest within hosting, although the usage of the name "Ludendorff" remained unknown to the public until recently.
+            <br><br><strong><span id="countdown"></p></strong><br><span style="margin-left: 48px;"><i>This page was mostly made by SRYDEN's Tenon AI model.</i></span>
+        </p>
+    </div>
+    <div class="right-side">
+        <img src="https://cdn.discordapp.com/attachments/1132468562569744485/1157034271769378826/DALLE_2023-09-28_20.15.07_-_Snow-covered_small_town_nestled_amidst_a_pristine_wintry_landscape_characterized_by_rustic_wooden_buildings_and_a_sense_of_tranquil_isolation._Snow-c.png?ex=651723a3&is=6515d223&hm=513ee2ca9f9fd73544a847cedd7afeaab11a9486aa3aa220901c968a82e3be21&" alt="Placeholder Image">
+    </div>
+    <script>
+        // Function to calculate the proximity to November 28th, 2023
+        function calculateProximity() {
+            const today = new Date();
+            const targetDate = new Date('2023-11-28');
+            const daysDifference = Math.ceil((targetDate - today) / (1000 * 60 * 60 * 24));
+
+            // Calculate the number between 28 and 100 based on proximity
+            const result = Math.max(28, 100 - daysDifference);
+
+            return result;
+        }
+
+        // Update the displayed number
+        function updateNumber() {
+            const number = calculateProximity();
+            document.getElementById('countdown').textContent = `The current temperature in Ludendorff is ${number} °F. On the release of the previous Ludendorff projects, it was always 28 °F.`;
+        }
+
+        // Update the number when the page loads
+        window.onload = updateNumber;
+
+        // Update the number every day (you can use setInterval for more frequent updates)
+        setInterval(updateNumber, 86400000); // 86400000 milliseconds = 1 day
+    </script>
+</body>
+</html>
