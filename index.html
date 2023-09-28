@@ -57,7 +57,7 @@
 </head>
 <body>
     <div class="left-side">
-<img src="https://cdn.discordapp.com/attachments/1132468562569744485/1140763255443300513/Copy_of_Untitled_SoundCloud_Banner.png" style="height: 48px; margin-left: 32px; margin-top: 12px;"><br>
+        <img src="https://cdn.discordapp.com/attachments/1132468562569744485/1140763255443300513/Copy_of_Untitled_SoundCloud_Banner.png" style="height: 48px; margin-left: 32px; margin-top: 12px;"><br>
         <p class="text">
             Ludendorff, North Yankton is a fictional location prominently featured in multiple video games including GTA 5. It serves as the backdrop for a significant prologue mission in the game, marked by its snowy terrain and small-town aesthetics.</br></br>
             Outside gaming, Ludendorff has been adopted as codenames for multiple projects by the technology and finance company SRYDEN.</br></br><strong>Releases:</strong><br>
@@ -65,36 +65,37 @@
             Ludendorff #2 - December 2022</br>
             Ludendorff #3 - ???? ????</br></br>
             Ludendorff's association with SRYDEN's projects has added an element of intrigue and interest within hosting, although the usage of the name "Ludendorff" remained unknown to the public until recently.
-            <br><br><strong><span id="countdown"></p></strong><br><span style="margin-left: 48px;"><i>This page was mostly made by SRYDEN's Tenon AI model.</i></span>
+            <br><br><strong><span id="temperature"></span></strong><br><br><span><i>This page was mostly made by SRYDEN's Tenon AI model.</i></span>
         </p>
     </div>
     <div class="right-side">
         <img src="https://cdn.discordapp.com/attachments/1132468562569744485/1157034271769378826/DALLE_2023-09-28_20.15.07_-_Snow-covered_small_town_nestled_amidst_a_pristine_wintry_landscape_characterized_by_rustic_wooden_buildings_and_a_sense_of_tranquil_isolation._Snow-c.png?ex=651723a3&is=6515d223&hm=513ee2ca9f9fd73544a847cedd7afeaab11a9486aa3aa220901c968a82e3be21&" alt="Placeholder Image">
     </div>
+
     <script>
-        // Function to calculate the proximity to November 28th, 2023
-        function calculateProximity() {
-            const today = new Date();
-            const targetDate = new Date('2023-11-28');
-            const daysDifference = Math.ceil((targetDate - today) / (1000 * 60 * 60 * 24));
+        // Get the current date
+        const currentDate = new Date();
+        const currentMonth = currentDate.getMonth() + 1; // Months are zero-based
 
-            // Calculate the number between 28 and 100 based on proximity
-            const result = Math.max(28, 100 - daysDifference);
-
-            return result;
+        // Determine the value to replace {number} based on the current date and month
+        let numberToReplace;
+        if (currentMonth === 11 && currentDate.getDate() >= 28) {
+            numberToReplace = 28;
+        } else if (currentMonth === 11) {
+            numberToReplace = 32;
+        } else if (currentMonth === 10 && currentDate.getDate() >= 1 && currentDate.getDate() <= 15) {
+            numberToReplace = 38;
+        } else if (currentMonth === 10 && currentDate.getDate() >= 16 && currentDate.getDate() <= 31) {
+            numberToReplace = 42;
+        } else if (currentMonth === 9) {
+            numberToReplace = 48;
+        } else {
+            // Default value or handle other cases as needed
+            numberToReplace = 0;
         }
 
-        // Update the displayed number
-        function updateNumber() {
-            const number = calculateProximity();
-            document.getElementById('countdown').textContent = `The current temperature in Ludendorff is ${number} °F. On the release of the previous Ludendorff projects, it was always 28 °F.`;
-        }
-
-        // Update the number when the page loads
-        window.onload = updateNumber;
-
-        // Update the number every day (you can use setInterval for more frequent updates)
-        setInterval(updateNumber, 86400000); // 86400000 milliseconds = 1 day
+        // Replace {number} with the determined value
+        document.getElementById("temperature").textContent = `The current temperature in Ludendorff is ${numberToReplace} °F. On the release of the previous Ludendorff projects, it was always 28 °F.`;
     </script>
 </body>
 </html>
